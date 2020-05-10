@@ -1,3 +1,4 @@
+# Shop Titans Market Tracker
 This project is for the game Shop Titans avaliable on mobile and steam.
 
 It uses image recognition, tesseract and pyautoGUI to track market prices

@@ -1,3 +1,4 @@
+# MY OSRS Bot
 This folder contains all the scripts I developed for OSRS
 
 It was a bot with various functions such as afk combat, fishing and mining runs.

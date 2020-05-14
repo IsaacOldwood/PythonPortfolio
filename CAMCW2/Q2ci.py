@@ -16,7 +16,7 @@ def u0(x):
 m=3
 h=1/(m+1)
 C=1
-delta_t=C*(h**2)
+delta_t=1/(4**2)
 UN=np.empty(m)
 lam=(a*delta_t)/(h**2)
 u=(lam*(-1)) *np.ones(m-1)
@@ -36,11 +36,13 @@ for i in range(1,m-1):
     little_f[i]=delta_t*f()
     UN[i]=u0(x[i+1])
 
-    F=UN + little_f
 
 
 for t in np.arange(0,(0.5+delta_t),delta_t):
-    UN1=np.empty(m)
+    F=UN + little_f
+    u=(lam*(-1)) *np.ones(m-1)
+    d=(1+lam*(2))*np.ones(m)
+    l=(lam*(-1)) *np.ones(m-1)
     #print(t)
     #Solving the tridiagonal problem
     #Elimination stage
@@ -53,23 +55,24 @@ for t in np.arange(0,(0.5+delta_t),delta_t):
     for i in range((m-2),-1,-1):
         UN1[i] = (F[i] - u[i] * UN1[i+1])/d[i]
 
-    #Insert end values
-    UN1=np.insert(UN1,0,g0)
-    UN1=np.insert(UN1,m+1,g1)
-    UN=np.insert(UN,0,g0)
-    UN=np.insert(UN,m+1,g1)
     #Reset for next iteration
     UN=UN1
+
+#Insert boundary values
+UN1=np.insert(UN1,0,g0)
+UN1=np.insert(UN1,m+1,g1)
+UN=np.insert(UN,0,g0)
+UN=np.insert(UN,m+1,g1)
 
 #Print answer
 print(UN1)
 #Plotting
 x_approx=np.linspace(0,1,num=m+2)
-plt.plot(x_approx,UN1,'o-',label=f'{h}',linewidth=0.9)
+plt.plot(x_approx,UN,'o-',label=f'{h}',linewidth=0.9)
 
 #Calculate true values and plot
 x_true=np.linspace(0,1)
-t_true=0.05
+t_true=0.5
 y_true=np.exp(-4*t_true) * np.sin(2*np.pi*x_true) + (x_true)
 
 plt.plot(x_true,y_true,'b',label='True')

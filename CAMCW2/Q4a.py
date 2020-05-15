@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 #Create data
 x=np.array([0.,0.5,1.])
-y_exact=np.array([0.,1.,0.])
+y_exact=np.array([0.,1.,1.])
 
 #Intiliase W and b
 W=0.5

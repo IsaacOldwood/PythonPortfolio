@@ -4,7 +4,7 @@ import random
 
 #Create data
 x=np.array([0.,0.5,1.])
-y_exact=np.array([0.,1.,0.])
+y_exact=np.array([0.,1.,1.])
 
 #Intiliase W and b
 W=0.5
@@ -13,7 +13,7 @@ b=0.5
 #Set other constants
 N=3
 eta=0.01
-MaxIter=1024
+MaxIter=16
 
 #Initialise approximation
 F=W * x + b
@@ -30,11 +30,15 @@ def cost_b(k):
 #Cost_vec
 cost_vec=np.empty(MaxIter)
 j=np.arange(0,MaxIter,1)
+w_vec=np.empty(MaxIter)
+b_vec=np.empty(MaxIter)
 
 #Peform stochastic gradient descent
 for i in range(0,MaxIter):
     #Pick random index
     k=random.randint(0, (N-1))
+    w_vec[i]=W
+    b_vec[i]=b
     #Forward pass
     F=W*x+b
     #Alter weights and biases
@@ -51,3 +55,6 @@ plt.title(f'Cost Eta={eta} MaxIter={MaxIter}')
 plt.xlabel('Iteration')
 plt.ylabel('Cost for SGD')
 plt.show()
+
+for i in range(0,MaxIter):
+    print(f'{w_vec[i]} & {b_vec[i]} & {cost_vec[i]}')

@@ -34,8 +34,6 @@ j=np.arange(0,MaxIter,1)
 for i in range(0,MaxIter):
     #Forward pass
     F=W*x+b
-    #Calculate partial derivates
-    delta=W * (F-y_exact)
     #Alter weights and biases
     W= W - eta * cost_W()
     b= b - eta * cost_b()

@@ -6,17 +6,18 @@ t=0
 a=np.pi**(-2)
 g0=0
 g1=1
-
+error_vec=[]
+h_vec=[]
+delta_t_vec=[]
 #Edit for given function
 def f():
     return 0
 def u0(x):
     return np.sin(2*np.pi*x)+(x)
 #Setting up the problem
-for m in [3,4,9]:
+for m in [3,7,15,31,63]:
     h=1/(m+1)
-    C=1
-    delta_t=1/(4**2)
+    delta_t=2*(h**2)
     UN=np.empty(m)
     lam=(a*delta_t)/(h**2)
     u=(lam*(-1)) *np.ones(m-1)
@@ -43,6 +44,7 @@ for m in [3,4,9]:
         u=(lam*(-1)) *np.ones(m-1)
         d=(1+lam*(2))*np.ones(m)
         l=(lam*(-1)) *np.ones(m-1)
+        #print(t)
         #Solving the tridiagonal problem
         #Elimination stage
         for i in range(1,(m)):
@@ -60,7 +62,32 @@ for m in [3,4,9]:
     #Insert boundary values
     UN1=np.insert(UN1,0,g0)
     UN1=np.insert(UN1,m+1,g1)
+    #Calculate true values and plot
+    x_true=np.linspace(0,1,num=m+2)
+    t_true=1
+    y_true=np.exp(-4*t_true) * np.sin(2*np.pi*x_true) + (x_true)
 
-    #Print answer
-    print(UN1)
-    
+    #Calculate and save error
+    error= np.max( np.abs( y_true - UN1 ) )
+    error_vec.append(error)
+    h_vec.append(h)
+    delta_t_vec.append(delta_t)
+
+#Print answer
+#print(UN1)
+#Plotting
+x_approx=np.linspace(0,1,num=m+2)
+
+plt.plot(h_vec,error_vec,'bo')    
+plt.xlabel('h')
+plt.ylabel('Error')
+plt.yscale("log")
+plt.xscale("log")
+plt.show()
+
+print(h_vec)
+print(delta_t_vec)
+print(error_vec)
+
+for i in range(0,len(error_vec)):
+    print(error_vec[i-1]/error_vec[i])

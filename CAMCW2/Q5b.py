@@ -25,7 +25,7 @@ b4 = 0.5*np.random.rand(2,1)
 
 #Forward and back propogate
 eta=0.05 #Learning rate
-Niter=int(5e5) #Iterations
+Niter=int(1e6) #Iterations
 savecost=np.empty(Niter)
 
 #Cost fucntion
@@ -80,7 +80,6 @@ a4= activate(a3,W4,b4)
 
 print(a4)
 
-#netbp()
 x_plot=range(0,Niter,int(1e4))
 #Shows decay of cost
 plt.plot(x_plot,savecost[x_plot],'b')    
@@ -88,4 +87,4 @@ plt.xlabel('Iterations')
 plt.ylabel('Cost')
 plt.title('Cost for MATLAB Code')
 plt.yscale("log")
-#plt.show()
+plt.show()

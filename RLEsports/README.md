@@ -1,4 +1,4 @@
-#Rocket League Esports
+# Rocket League Esports
 
 These scripts and database are used for scraping and collecting data about Rocket League Esports matches
 

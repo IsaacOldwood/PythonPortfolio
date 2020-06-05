@@ -24,6 +24,7 @@ def collectAllEvents():
 
 def collectMatchUrls():
     #https://api.octane.gg/api/matches?page=2  20 per page
+    #Collects all played match URLs
 
     r=requests.get('https://api.octane.gg/api/matches?page=1')
     json=r.json()
@@ -59,10 +60,5 @@ def readAllMatchUrls():
 
     return all_match_urls
     
-collectMatchUrls()
-    
 
-all_match_urls=readAllMatchUrls()
-
-print(len(all_match_urls))
 

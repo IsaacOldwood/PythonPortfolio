@@ -46,6 +46,8 @@ def collectMatchUrls():
     with open('RLEsports/all_match_urls.txt', 'wb') as f:
         pickle.dump(all_match_urls, f)
 
+    print('Successfully collected and saved all macth URLs')
+
 def readAllMatchUrls():
 
     with open ('RLEsports/all_match_urls.txt', 'rb') as f:

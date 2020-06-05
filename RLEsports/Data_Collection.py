@@ -40,11 +40,15 @@ def collectMatchUrls():
 
         jsonData=json['data']
 
-        match_urls=[jsonData[i]['match_url'] for i in range(0,20)]
-        all_match_urls.append(match_urls)
+        match_urls=[jsonData[i]['match_url'] for i in range(0,len(jsonData))]
+        all_match_urls.extend(match_urls)
 
-    with open('RLEsports/all_match_urls.txt', 'wb') as f:
-        pickle.dump(all_match_urls, f)
+        #Save every 20 pages
+        if pageNo % 20==0:
+            with open('RLEsports/all_match_urls.txt', 'wb') as f:
+                pickle.dump(all_match_urls, f)
+            
+            print(f'Page {pageNo} complete')
 
     print('Successfully collected and saved all macth URLs')
 
@@ -55,7 +59,7 @@ def readAllMatchUrls():
 
     return all_match_urls
     
-
+collectMatchUrls()
     
 
 all_match_urls=readAllMatchUrls()

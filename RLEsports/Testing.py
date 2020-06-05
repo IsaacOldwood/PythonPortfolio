@@ -1,7 +1,9 @@
 import requests
 import json
 
-r=requests.get('https://api.octane.gg/api/matches/?sort=&page=1&per_page=100')
-json=r.json()
-
-print(json)
+for pageNo in range(1,125):
+    
+    
+    if pageNo % 20==0:
+            
+        print(f'Page {pageNo} complete')

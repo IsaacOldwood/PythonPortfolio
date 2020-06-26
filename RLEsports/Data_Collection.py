@@ -60,5 +60,21 @@ def readAllMatchUrls():
 
     return all_match_urls
     
+def collectMatchData(match_url):
+    #https://api.octane.gg/api/match/MATCHID
+
+    r=requests.get(f'https://api.octane.gg/api/match/{match_url}')
+    JSON=r.json()
+
+    return JSON
+
+def collectGameData(match_url,game_no):
+    #https://api.octane.gg/api/match_scoreboard_info/4770126/1
+
+    r=requests.get(f'https://api.octane.gg/api/match_scoreboard_info/{match_url}/{game_no}')
+    JSON=r.json()
+
+    return JSON
 
 
+#all_match_url=readAllMatchUrls()

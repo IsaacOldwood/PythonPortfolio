@@ -68,8 +68,12 @@ def collectAllMatchURLs():
 
 def readAllMatchUrls():
 
-    with open ('RLEsports/all_match_urls.txt', 'rb') as f:
-        all_match_urls = pickle.load(f)
+    try:
+        with open ('RLEsports/all_match_urls.txt', 'rb') as f:
+            all_match_urls = pickle.load(f)
+    except FileNotFoundError:
+        with open ('all_match_urls.txt', 'rb') as f:
+            all_match_urls = pickle.load(f)
 
     return all_match_urls
     
@@ -89,7 +93,7 @@ def collectGameData(match_url,game_no):
 
     return JSON
 
-def collectMatchURLIncludingTeams(team_list,list_name):
+def checkMatchURLIncludingTeams(team_list,list_name):
     
     all_match_url=readAllMatchUrls()
     saved_URLs=[]
@@ -109,11 +113,19 @@ def collectMatchURLIncludingTeams(team_list,list_name):
             saved_URLs.append(match_url)
 
         if counter % 25==0:
-            with open(f'RLEsports/{list_name}URLs.txt', 'wb') as f:
-                pickle.dump(saved_URLs, f)
+            try:
+                with open(f'RLEsports/{list_name}URLs.txt', 'wb') as f:
+                    pickle.dump(saved_URLs, f)
+            except FileNotFoundError:
+                with open(f'{list_name}URLs.txt', 'wb') as f:
+                    pickle.dump(saved_URLs, f)
             print(f'{counter} matches checked')
 
-    with open(f'RLEsports/{list_name}URLs.txt', 'wb') as f:
+    try:
+        with open(f'RLEsports/{list_name}URLs.txt', 'wb') as f:
+            pickle.dump(saved_URLs, f)
+    except FileNotFoundError:
+        with open(f'{list_name}URLs.txt', 'wb') as f:
             pickle.dump(saved_URLs, f)
 
     print('Successfully collected all match URLs for given teams')    
@@ -182,4 +194,5 @@ def collectTeamMapInfo(match_urls,team_list):
 
 
 if __name__ == "__main__":
-    collectAllMatchURLs()
+    big_six=['Renault Vitality', 'Dignitas', 'mousesports', 'G2 Esports', 'NRG Esports', 'Spacestation Gaming']
+    checkMatchURLIncludingTeams(big_six,'bigSix')

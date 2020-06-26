@@ -4,8 +4,6 @@ import pickle
 
 #api.octane.gg
 
-big_six=['Renault Vitality', 'Dignitas', 'mousesports', 'G2 Esports', 'NRG Esports', 'Spacestation Gaming']
-
 def collectAllTeams():
     
     r=requests.get('https://api.octane.gg/api/search/teams/')
@@ -24,9 +22,11 @@ def collectAllEvents():
     json=r.json()
     return json
 
-def collectMatchUrls():
+def collectAllMatchURLs():
     #https://api.octane.gg/api/matches?page=2  20 per page
     #Collects all played match URLs
+
+    print('Collecting all avaliable match URLs')
 
     r=requests.get('https://api.octane.gg/api/matches?page=1')
     json=r.json()
@@ -48,13 +48,21 @@ def collectMatchUrls():
 
         #Save every 20 pages
         if pageNo % 20==0:
-            with open('RLEsports/all_match_urls.txt', 'wb') as f:
-                pickle.dump(all_match_urls, f)
+            try:
+                with open('RLEsports/all_match_urls.txt', 'wb') as f:
+                    pickle.dump(all_match_urls, f)
+            except FileNotFoundError:
+                with open('all_match_urls.txt', 'wb') as f:
+                    pickle.dump(all_match_urls, f)
             
             print(f'Page {pageNo} complete')
 
-    with open('RLEsports/all_match_urls.txt', 'wb') as f:
-                pickle.dump(all_match_urls, f)
+    try:
+        with open('RLEsports/all_match_urls.txt', 'wb') as f:
+            pickle.dump(all_match_urls, f)
+    except FileNotFoundError:
+        with open('all_match_urls.txt', 'wb') as f:
+            pickle.dump(all_match_urls, f)
 
     print('Successfully collected and saved all macth URLs')
 
@@ -172,9 +180,6 @@ def collectTeamMapInfo(match_urls,team_list):
 
     return collectedData
 
-savedURLs=readTeamURLs('bigSix')
 
-collectedData=collectTeamMapInfo(savedURLs,big_six)
-
-print(collectedData)
-
+if __name__ == "__main__":
+    collectAllMatchURLs()

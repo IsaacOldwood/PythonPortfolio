@@ -4,6 +4,8 @@ import pickle
 
 #api.octane.gg
 
+big_six=['Renault Vitality', 'Dignitas', 'mousesports', 'G2 Esports', 'NRG Esports', 'Spacestation Gaming']
+
 def collectAllTeams():
     
     r=requests.get('https://api.octane.gg/api/search/teams/')
@@ -51,6 +53,9 @@ def collectMatchUrls():
             
             print(f'Page {pageNo} complete')
 
+    with open('RLEsports/all_match_urls.txt', 'wb') as f:
+                pickle.dump(all_match_urls, f)
+
     print('Successfully collected and saved all macth URLs')
 
 def readAllMatchUrls():
@@ -60,10 +65,10 @@ def readAllMatchUrls():
 
     return all_match_urls
     
-def collectMatchData(match_url):
-    #https://api.octane.gg/api/match/MATCHID
+def collectSeriesData(match_url):
+    #https://api.octane.gg/api/match/MATCHID or https://api.octane.gg/api/series/MATCHID 
 
-    r=requests.get(f'https://api.octane.gg/api/match/{match_url}')
+    r=requests.get(f'https://api.octane.gg/api/series/{match_url}')
     JSON=r.json()
 
     return JSON
@@ -76,5 +81,44 @@ def collectGameData(match_url,game_no):
 
     return JSON
 
+def collectMatchURLIncludingTeams(team_list,list_name):
+    
+    all_match_url=readAllMatchUrls()
+    saved_URLs=[]
+    counter=0
 
-#all_match_url=readAllMatchUrls()
+    for match_url in all_match_url:
+        counter+=1
+        JSON=collectSeriesData(match_url)
+        try:
+            team1=JSON['data'][0]['Team1']
+            team2=JSON['data'][0]['Team2']
+        except KeyError:
+            print(f'Failed on {match_url}')
+            break
+
+        if (team1 in team_list) or (team2 in team_list):
+            saved_URLs.append(match_url)
+
+        if counter % 25==0:
+            with open(f'RLEsports/{list_name}URLs.txt', 'wb') as f:
+                pickle.dump(saved_URLs, f)
+            print(f'{counter} matches checked')
+
+    with open(f'RLEsports/{list_name}URLs.txt', 'wb') as f:
+            pickle.dump(saved_URLs, f)
+
+    print('Successfully collected all match URLs for given teams')    
+
+def readTeamURLs(list_name):
+
+    with open(f'RLEsports/{list_name}URLs.txt', 'rb') as f:
+        savedURLs=pickle.load(f)
+
+    return savedURLs
+
+
+savedURLs=readTeamURLs('bigSix')
+
+print(savedURLs)
+

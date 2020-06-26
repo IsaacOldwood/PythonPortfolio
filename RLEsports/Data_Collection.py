@@ -117,8 +117,19 @@ def readTeamURLs(list_name):
 
     return savedURLs
 
+def collectTeamMapInfo(match_urls):
+    collectedData={}
+
+
+
+    with open(f'RLEsports/TeamMapData.json','w') as f:
+        json.dump(collectedData,f,indent=2)
+
+    return collectedData
 
 savedURLs=readTeamURLs('bigSix')
 
-print(savedURLs)
+collectedData=collectTeamMapInfo(savedURLs)
+
+print(collectedData)
 

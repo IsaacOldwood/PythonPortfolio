@@ -195,4 +195,5 @@ def collectTeamMapInfo(match_urls,team_list):
 
 if __name__ == "__main__":
     big_six=['Renault Vitality', 'Dignitas', 'mousesports', 'G2 Esports', 'NRG Esports', 'Spacestation Gaming']
-    checkMatchURLIncludingTeams(big_six,'bigSix')
+    savedURLs=readTeamURLs('bigSix')
+    print(savedURLs)

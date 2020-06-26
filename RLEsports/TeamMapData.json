@@ -1,1 +1,238 @@
-{}
+{
+  "Renault Vitality": {
+    "Wasteland": {
+      "total": 9,
+      "wins": 8
+    },
+    "Utopia Coliseum": {
+      "total": 18,
+      "wins": 18
+    },
+    "Mannfield": {
+      "total": 27,
+      "wins": 20
+    },
+    "DFH Stadium": {
+      "total": 19,
+      "wins": 10
+    },
+    "Neo Tokyo": {
+      "total": 9,
+      "wins": 5
+    },
+    "Urban Central": {
+      "total": 5,
+      "wins": 5
+    },
+    "Forbidden Temple": {
+      "total": 1,
+      "wins": 1
+    },
+    "Champions Field": {
+      "total": 3,
+      "wins": 3
+    },
+    "Utopia Colosseum": {
+      "total": 9,
+      "wins": 7
+    }
+  },
+  "Dignitas": {
+    "Wasteland": {
+      "total": 10,
+      "wins": 2
+    },
+    "DFH Stadium": {
+      "total": 26,
+      "wins": 15
+    },
+    "Mannfield": {
+      "total": 38,
+      "wins": 19
+    },
+    "Neo Tokyo": {
+      "total": 25,
+      "wins": 13
+    },
+    "Urban Central": {
+      "total": 6,
+      "wins": 3
+    },
+    "Forbidden Temple": {
+      "total": 1,
+      "wins": 1
+    },
+    "Utopia Coliseum": {
+      "total": 9,
+      "wins": 5
+    },
+    "Utopia Colosseum": {
+      "total": 7,
+      "wins": 4
+    },
+    "Champions Field": {
+      "total": 20,
+      "wins": 11
+    }
+  },
+  "mousesports": {
+    "DFH Stadium": {
+      "total": 10,
+      "wins": 7
+    },
+    "Neo Tokyo": {
+      "total": 9,
+      "wins": 5
+    },
+    "Mannfield": {
+      "total": 13,
+      "wins": 8
+    },
+    "Utopia Coliseum": {
+      "total": 3,
+      "wins": 1
+    },
+    "Champions Field": {
+      "total": 9,
+      "wins": 5
+    },
+    "Utopia Colosseum": {
+      "total": 6,
+      "wins": 2
+    },
+    "Urban Central": {
+      "total": 2,
+      "wins": 1
+    },
+    "Wasteland": {
+      "total": 1,
+      "wins": 0
+    },
+    "Forbidden Temple": {
+      "total": 4,
+      "wins": 3
+    }
+  },
+  "G2 Esports": {
+    "Neo Tokyo": {
+      "total": 9,
+      "wins": 5
+    },
+    "Mannfield": {
+      "total": 23,
+      "wins": 16
+    },
+    "Urban Central": {
+      "total": 14,
+      "wins": 9
+    },
+    "DFH Stadium": {
+      "total": 23,
+      "wins": 17
+    },
+    "Forbidden Temple": {
+      "total": 1,
+      "wins": 1
+    },
+    "Utopia Coliseum": {
+      "total": 2,
+      "wins": 2
+    },
+    "Salty Shores": {
+      "total": 1,
+      "wins": 1
+    },
+    "Champions Field": {
+      "total": 11,
+      "wins": 9
+    },
+    "Utopia Colosseum": {
+      "total": 6,
+      "wins": 3
+    },
+    "Wasteland": {
+      "total": 1,
+      "wins": 0
+    }
+  },
+  "NRG Esports": {
+    "Mannfield": {
+      "total": 19,
+      "wins": 6
+    },
+    "Neo Tokyo": {
+      "total": 10,
+      "wins": 4
+    },
+    "Urban Central": {
+      "total": 10,
+      "wins": 4
+    },
+    "DFH Stadium": {
+      "total": 16,
+      "wins": 8
+    },
+    "Forbidden Temple": {
+      "total": 2,
+      "wins": 1
+    },
+    "Utopia Coliseum": {
+      "total": 3,
+      "wins": 2
+    },
+    "Champions Field": {
+      "total": 10,
+      "wins": 6
+    },
+    "Utopia Colosseum": {
+      "total": 5,
+      "wins": 3
+    },
+    "Wasteland": {
+      "total": 1,
+      "wins": 1
+    }
+  },
+  "Spacestation Gaming": {
+    "Champions Field": {
+      "total": 19,
+      "wins": 11
+    },
+    "DFH Stadium": {
+      "total": 35,
+      "wins": 20
+    },
+    "Aquadome": {
+      "total": 5,
+      "wins": 4
+    },
+    "Neo Tokyo": {
+      "total": 15,
+      "wins": 12
+    },
+    "Salty Shores": {
+      "total": 6,
+      "wins": 4
+    },
+    "Wasteland": {
+      "total": 5,
+      "wins": 4
+    },
+    "Mannfield": {
+      "total": 42,
+      "wins": 25
+    },
+    "Utopia Coliseum": {
+      "total": 2,
+      "wins": 1
+    },
+    "Urban Central": {
+      "total": 8,
+      "wins": 6
+    },
+    "Utopia Colosseum": {
+      "total": 4,
+      "wins": 2
+    }
+  }
+}

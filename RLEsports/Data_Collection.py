@@ -199,7 +199,7 @@ def collectTeamMapInfo(match_urls,team_list):
             except FileNotFoundError:
                 with open(f'TeamMapData.json','w') as f:
                     json.dump(collectedData,f,indent=2)
-            print(f'{counter} matches checked')
+            print(f'{counter} matches collected')
 
 
     #Save collected Data
@@ -209,6 +209,8 @@ def collectTeamMapInfo(match_urls,team_list):
     except FileNotFoundError:
         with open(f'TeamMapData.json','w') as f:
             json.dump(collectedData,f,indent=2)
+
+    print('Successfully collected all match data')
 
     return collectedData
 

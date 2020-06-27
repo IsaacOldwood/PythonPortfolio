@@ -1,0 +1,89 @@
+{
+  "Mannfield": {
+    "Renault Vitality": 60,
+    "Dignitas": 51,
+    "mousesports": 55,
+    "G2 Esports": 54,
+    "NRG Esports": 62,
+    "Spacestation Gaming": 52
+  },
+  "Champions Field": {
+    "Renault Vitality": 66,
+    "Dignitas": 67,
+    "mousesports": 39,
+    "G2 Esports": 55,
+    "NRG Esports": 68,
+    "Spacestation Gaming": 45
+  },
+  "DFH Stadium": {
+    "Renault Vitality": 52,
+    "Dignitas": 51,
+    "mousesports": 47,
+    "G2 Esports": 61,
+    "NRG Esports": 62,
+    "Spacestation Gaming": 61
+  },
+  "Wasteland": {
+    "Renault Vitality": 55,
+    "Dignitas": 54,
+    "mousesports": 25,
+    "G2 Esports": 53,
+    "NRG Esports": 60,
+    "Spacestation Gaming": 62
+  },
+  "Utopia Coliseum": {
+    "Renault Vitality": 63,
+    "Dignitas": 64,
+    "mousesports": 35,
+    "G2 Esports": 68,
+    "NRG Esports": 60,
+    "Spacestation Gaming": 52
+  },
+  "Neo Tokyo": {
+    "Renault Vitality": 53,
+    "Dignitas": 62,
+    "mousesports": 43,
+    "G2 Esports": 56,
+    "NRG Esports": 63,
+    "Spacestation Gaming": 65
+  },
+  "Urban Central": {
+    "Renault Vitality": 52,
+    "Dignitas": 65,
+    "mousesports": 67,
+    "G2 Esports": 48,
+    "NRG Esports": 67,
+    "Spacestation Gaming": 56
+  },
+  "Forbidden Temple": {
+    "Renault Vitality": 100,
+    "Dignitas": 100,
+    "mousesports": 75,
+    "G2 Esports": 100,
+    "NRG Esports": 50
+  },
+  "Utopia Colosseum": {
+    "Renault Vitality": 76,
+    "Dignitas": 69,
+    "mousesports": 52,
+    "G2 Esports": 78,
+    "NRG Esports": 62,
+    "Spacestation Gaming": 64
+  },
+  "Aquadome": {
+    "Renault Vitality": 77,
+    "Dignitas": 59,
+    "mousesports": 45,
+    "G2 Esports": 36,
+    "NRG Esports": 63,
+    "Spacestation Gaming": 50
+  },
+  "Salty Shores": {
+    "G2 Esports": 100,
+    "Spacestation Gaming": 67
+  },
+  "Starbase ARC": {
+    "G2 Esports": 100,
+    "NRG Esports": 0
+  }
+}

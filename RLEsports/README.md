@@ -8,4 +8,4 @@ I am planning to then use this to create Machine Learning algorithims for predic
 
 # A graph showing the top 6 teams' game win rate for varying maps
 
-![Image of Graph](RLEsports\big6WinRatePlot.png)
+![Image of Graph](big6WinRatePlot.png)

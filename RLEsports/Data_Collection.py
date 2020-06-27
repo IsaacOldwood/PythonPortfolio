@@ -132,8 +132,12 @@ def checkMatchURLIncludingTeams(team_list,list_name):
 
 def readTeamURLs(list_name):
 
-    with open(f'RLEsports/{list_name}URLs.txt', 'rb') as f:
-        savedURLs=pickle.load(f)
+    try:
+        with open(f'RLEsports/{list_name}URLs.txt', 'rb') as f:
+            savedURLs=pickle.load(f)
+    except FileNotFoundError:
+        with open(f'{list_name}URLs.txt', 'rb') as f:
+            savedURLs=pickle.load(f)
 
     return savedURLs
 
@@ -144,7 +148,10 @@ def collectTeamMapInfo(match_urls,team_list):
         teamData={}
         collectedData[team]=teamData
 
+    counter=0
+
     for matchURL in match_urls:
+        counter+=1
         JSON=collectSeriesData(matchURL)
         total_games=JSON['data'][0]['Team1Games'] + JSON['data'][0]['Team2Games']
 
@@ -185,10 +192,23 @@ def collectTeamMapInfo(match_urls,team_list):
                 
                 collectedData[team2][mapName]['total']+=1
 
+        if counter % 25==0:
+            try:
+                with open(f'RLEsports/TeamMapData.json','w') as f:
+                    json.dump(collectedData,f,indent=2)
+            except FileNotFoundError:
+                with open(f'TeamMapData.json','w') as f:
+                    json.dump(collectedData,f,indent=2)
+            print(f'{counter} matches checked')
+
 
     #Save collected Data
-    with open(f'RLEsports/TeamMapData.json','w') as f:
-        json.dump(collectedData,f,indent=2)
+    try:
+        with open(f'RLEsports/TeamMapData.json','w') as f:
+            json.dump(collectedData,f,indent=2)
+    except FileNotFoundError:
+        with open(f'TeamMapData.json','w') as f:
+            json.dump(collectedData,f,indent=2)
 
     return collectedData
 
@@ -196,4 +216,4 @@ def collectTeamMapInfo(match_urls,team_list):
 if __name__ == "__main__":
     big_six=['Renault Vitality', 'Dignitas', 'mousesports', 'G2 Esports', 'NRG Esports', 'Spacestation Gaming']
     savedURLs=readTeamURLs('bigSix')
-    print(savedURLs)
+    collectTeamMapInfo(savedURLs,big_six)
